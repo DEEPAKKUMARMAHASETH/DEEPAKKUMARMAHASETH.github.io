@@ -431,7 +431,7 @@ svg {
   border-radius: 1rem;
   padding: 1.5rem 1.5rem;
   border: 2px solid var(--container-color);
-  transition: border .6s;
+  transition: border .3s;
 }
 .services__img{
   width: 100%;
