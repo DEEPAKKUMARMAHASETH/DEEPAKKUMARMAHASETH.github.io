@@ -141,3 +141,29 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+const currentDate = new Date();
+const calculateMonths = (startDate, endDate) => {
+  const diffInMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+  return diffInMonths;
+};
+
+const updateMonthsOnLoad = () => {
+  const backend = document.querySelector('.backendMonths');
+  const frontend = document.querySelector('.frontendMonths');
+  const othertech = document.querySelector('.othertechMonths');
+  const designtool = document.querySelector('.designMonths');
+  const backendStart = new Date('2022-12-01');
+  const frontendStart = new Date('2022-07-01');
+  const othertechStart = new Date('2022-12-01');
+  const designTechStart = new Date('2022-12-01');
+  const backendDifference = calculateMonths(backendStart, currentDate);
+  const frontendDifference = calculateMonths(frontendStart, currentDate);
+  const othertechDifference = calculateMonths(othertechStart, currentDate);
+  const designDifference = calculateMonths(designTechStart, currentDate);
+  backend.textContent = `${backendDifference}+ months`;
+  frontend.textContent = `${frontendDifference}+ months`;
+  othertech.textContent = `${othertechDifference}+ months`;
+  designtool.textContent = `${designDifference}+ months`;
+};
+window.addEventListener('load', updateMonthsOnLoad);
